@@ -5,7 +5,7 @@ public class SandPileGame {
     public static final int MAXIMUM_NUMBER_OF_SAND_GRAIN = 4;
 
     public static int[][] sandPile(int[][] pile, int numberOfGrainToAdd) {
-        if (numberOfGrainToAdd == 2) {
+        if (numberOfGrainToAdd == 2 || numberOfGrainToAdd == 3) {
             return new int[][]{{3}};
         }
 

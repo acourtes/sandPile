@@ -45,4 +45,14 @@ public class SandPileGameTest {
 
         assertThat(result).isEqualTo(expected);
     }
+
+    @Test
+    void should_add_3_sand_grains_for_a_single_cell_with_no_grain() {
+        int[][] pile = new int[][]{{0}};
+        int[][] expected = new int[][]{{3}};
+
+        int[][] result = SandPileGame.sandPile(pile, 3);
+
+        assertThat(result).isEqualTo(expected);
+    }
 }
