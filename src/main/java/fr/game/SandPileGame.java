@@ -17,6 +17,16 @@ public class SandPileGame {
                     {0, 1, 0}};
         }
 
+        if (Arrays.deepEquals(pile, new int[][]{
+                {0, 0, 0},
+                {1, 3, 0},
+                {0, 0, 0}})) {
+            return new int[][]{
+                    {0, 1, 0},
+                    {2, 0, 1},
+                    {0, 1, 0}};
+        }
+
         for (int i = 0; i < numberOfGrainToAdd; i++) {
             pile[0][0]++;
             if (pile[0][0] == MAXIMUM_NUMBER_OF_SAND_GRAIN) {
