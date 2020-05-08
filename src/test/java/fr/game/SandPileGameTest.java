@@ -206,14 +206,14 @@ public class SandPileGameTest {
 
     @Test
     void should_add_5_sand_grains_for_a_25_cells_with_3_grains_at_center_and_3_grains_around() {
-        int[][] pile = new int[][] {
-                {0,0,3,0,0},
-                {0,0,3,0,0},
-                {3,3,3,3,3},
-                {0,0,3,0,0},
-                {0,0,3,0,0}
+        int[][] pile = new int[][]{
+                {0, 0, 3, 0, 0},
+                {0, 0, 3, 0, 0},
+                {3, 3, 3, 3, 3},
+                {0, 0, 3, 0, 0},
+                {0, 0, 3, 0, 0}
         };
-        int[][] expected = new int[][] {
+        int[][] expected = new int[][]{
                 {0, 1, 0, 1, 0},
                 {1, 2, 3, 2, 1},
                 {0, 3, 0, 3, 0},
@@ -222,6 +222,36 @@ public class SandPileGameTest {
         };
 
         int[][] result = SandPileGame.sandPile(pile, 5);
+
+        assertThat(result).isEqualTo(expected);
+    }
+
+    @Test
+    void should_add_1_sand_grain_for_a_81_cells_with_3_grains_at_center_and_3_grains_around() {
+        int[][] pile = new int[][]{
+                {0, 0, 0, 0, 3, 0, 0, 0, 0},
+                {0, 0, 0, 0, 3, 0, 0, 0, 0},
+                {0, 0, 0, 0, 3, 0, 0, 0, 0},
+                {0, 0, 0, 0, 3, 0, 0, 0, 0},
+                {3, 3, 3, 3, 3, 3, 3, 3, 3},
+                {0, 0, 0, 0, 3, 0, 0, 0, 0},
+                {0, 0, 0, 0, 3, 0, 0, 0, 0},
+                {0, 0, 0, 0, 3, 0, 0, 0, 0},
+                {0, 0, 0, 0, 3, 0, 0, 0, 0}
+        };
+        int[][] expected = new int[][]{
+                {0, 0, 0, 1, 0, 1, 0, 0, 0},
+                {0, 0, 0, 1, 1, 1, 0, 0, 0},
+                {0, 0, 0, 1, 1, 1, 0, 0, 0},
+                {1, 1, 1, 2, 2, 2, 1, 1, 1},
+                {0, 1, 1, 2, 0, 2, 1, 1, 0},
+                {1, 1, 1, 2, 2, 2, 1, 1, 1},
+                {0, 0, 0, 1, 1, 1, 0, 0, 0},
+                {0, 0, 0, 1, 1, 1, 0, 0, 0},
+                {0, 0, 0, 1, 0, 1, 0, 0, 0}
+        };
+
+        int[][] result = SandPileGame.sandPile(pile, 1);
 
         assertThat(result).isEqualTo(expected);
     }
