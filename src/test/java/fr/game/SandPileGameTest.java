@@ -156,4 +156,19 @@ public class SandPileGameTest {
         assertThat(result).isEqualTo(expected);
     }
 
+    @Test
+    void should_add_1_sand_grain_for_a_9_cells_with_3_grains_at_center_and_3_grains_on_left() {
+        int[][] pile = new int[][]{
+                {0, 0, 0},
+                {3, 3, 1},
+                {0, 0, 0}};
+        int[][] expected = new int[][]{
+                {1, 1, 0},
+                {0, 1, 2},
+                {1, 1, 0}};
+
+        int[][] result = SandPileGame.sandPile(pile, 1);
+
+        assertThat(result).isEqualTo(expected);
+    }
 }
