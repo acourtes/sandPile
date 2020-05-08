@@ -180,7 +180,7 @@ public class SandPileGameTest {
                 {0, 0, 0}};
         int[][] expected = new int[][]{
                 {1, 0, 1},
-                {0, 1, 2},
+                {1, 1, 2},
                 {0, 1, 0}};
 
         int[][] result = SandPileGame.sandPile(pile, 1);
