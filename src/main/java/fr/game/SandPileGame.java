@@ -20,22 +20,38 @@ public class SandPileGame {
         if (pile[x][y] == MAXIMUM_NUMBER_OF_SAND_GRAIN) {
             pile[x][y] = 0;
 
-            if (x - 1 >= 0) {
+            if (weAreNotToMuchOnLeft(x)) {
                 //Left
                 processCell(pile, x - 1, y);
             }
-            if (y - 1 >= 0) {
+            if (weAreNotTooMuchOnTop(y)) {
                 //Top
                 processCell(pile, x, y - 1);
             }
-            if (x + 1 < length) {
+            if (weAreNotTooMuchOnRight(x, length)) {
                 //Right
                 processCell(pile, x + 1, y);
             }
-            if (y + 1 < length) {
+            if (weAreNotTooMuchOnDown(y, length)) {
                 //Down
                 processCell(pile, x, y + 1);
             }
         }
+    }
+
+    private static boolean weAreNotTooMuchOnDown(int y, int length) {
+        return y + 1 < length;
+    }
+
+    private static boolean weAreNotTooMuchOnRight(int x, int length) {
+        return x + 1 < length;
+    }
+
+    private static boolean weAreNotTooMuchOnTop(int y) {
+        return y - 1 >= 0;
+    }
+
+    private static boolean weAreNotToMuchOnLeft(int x) {
+        return x - 1 >= 0;
     }
 }
