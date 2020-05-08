@@ -5,8 +5,7 @@ public class SandPileGame {
     public static final int MAXIMUM_NUMBER_OF_SAND_GRAIN = 4;
 
     public static int[][] sandPile(int[][] pile, int numberOfGrainToAdd) {
-        var length = pile.length;
-        var center = (length - 1) / 2;
+        var center = (pile.length - 1) / 2;
 
         for (int i = 0; i < numberOfGrainToAdd; i++) {
             processCell(pile, center, center);
