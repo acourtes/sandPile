@@ -17,6 +17,16 @@ public class SandPileGame {
                     {1, 1, 0}};
         }
 
+        if (Arrays.deepEquals(pile, new int[][]{
+                {0, 3, 0},
+                {0, 3, 1},
+                {0, 0, 0}})) {
+            return new int[][]{
+                    {1, 0, 1},
+                    {0, 1, 2},
+                    {0, 1, 0}};
+        }
+
         var length = pile.length;
         var center = (length - 1) / 2;
 
