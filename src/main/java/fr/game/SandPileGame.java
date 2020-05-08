@@ -1,36 +1,30 @@
 package fr.game;
 
-import java.util.Arrays;
-
 public class SandPileGame {
 
     public static final int MAXIMUM_NUMBER_OF_SAND_GRAIN = 4;
 
     public static int[][] sandPile(int[][] pile, int numberOfGrainToAdd) {
-        if (Arrays.deepEquals(pile, new int[][]{
-                {0, 0, 0},
-                {0, 3, 0},
-                {0, 0, 0}})) {
-            return new int[][]{
-                    {0, 1, 0},
-                    {1, 0, 1},
-                    {0, 1, 0}};
-        }
-
-        if (Arrays.deepEquals(pile, new int[][]{
-                {0, 0, 0},
-                {1, 3, 0},
-                {0, 0, 0}})) {
-            return new int[][]{
-                    {0, 1, 0},
-                    {2, 0, 1},
-                    {0, 1, 0}};
-        }
+        var length = pile.length;
+        var center = (length - 1) / 2;
 
         for (int i = 0; i < numberOfGrainToAdd; i++) {
-            pile[0][0]++;
-            if (pile[0][0] == MAXIMUM_NUMBER_OF_SAND_GRAIN) {
-                pile[0][0] = 0;
+            pile[center][center]++;
+            if (pile[center][center] == MAXIMUM_NUMBER_OF_SAND_GRAIN) {
+                pile[center][center] = 0;
+
+                if (center - 1 >= 0) {
+                    //Left
+                    pile[center - 1][center]++;
+                    //Top
+                    pile[center][center - 1]++;
+                }
+                if (center + 1 < length) {
+                    //Right
+                    pile[center + 1][center]++;
+                    //Down
+                    pile[center][center + 1]++;
+                }
             }
         }
 
